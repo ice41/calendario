@@ -8,7 +8,7 @@ Um sistema moderno e intuitivo para gestão de férias de funcionários, desenvo
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 <div align="center">
   <p align="center">
-    <a https://ice41.github.io/calendario/">Experimentar página </a>
+    <a href="https://ice41.github.io/calendario/">Experimentar página</a>
   </p>
 </div>
 
