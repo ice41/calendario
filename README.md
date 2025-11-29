@@ -201,7 +201,7 @@ Este projeto está sob a licença MIT.
 ## 👨‍💻 Desenvolvedor
 
 </details>
-<p align="center">
+<p align="left">
   <a href="https://discord.com/users/261642084463804416/"><img src="https://discord.c99.nl/widget/theme-2/261642084463804416.png" /></a><br>
 </p>
 
