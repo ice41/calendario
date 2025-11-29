@@ -198,10 +198,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 - Sugerir novas funcionalidades
 - Enviar pull requests
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
 ## 👨‍💻 Desenvolvedor
 
 </details>
