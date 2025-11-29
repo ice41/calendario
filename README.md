@@ -6,7 +6,8 @@ Um sistema moderno e intuitivo para gestão de férias de funcionários, desenvo
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-<a href="https://ice41.github.io/calendario/"><img src="https://img.shields.io/badge/Visitar_Site-blue" alt="visitar" title="visitar"></a>
+![WEB]https://img.shields.io/badge/visitar-site-brightgreen?style=for-the-badge
+
 <div align="center">
   <p align="center">
     <a href="https://ice41.github.io/calendario/">Experimentar página</a>
