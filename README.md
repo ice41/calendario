@@ -9,7 +9,7 @@ Um sistema moderno e intuitivo para gestão de férias de funcionários, desenvo
 <div align="center">
   <p align="center">
     <a href="https://ice41.github.io/calendario/">Experimentar página</a>
-   <a href="https://ice41.github.io/calendario/"><img src="https://img.shields.io/badge/Visitar_Site-blue" height="30" width="30" alt="visitar" title="visitar"></a>
+   <a href="https://ice41.github.io/calendario/"><img src="https://img.shields.io/badge/Visitar_Site-blue" alt="visitar" title="visitar"></a>
   </p>
 </div>
 
