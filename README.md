@@ -200,7 +200,7 @@ Este projeto está sob a licença MIT.
 
 ## 👨‍💻 Desenvolvedor
 
-Desenvolvido com ❤️ para facilitar a gestão de férias da sua equipe.
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=ice41&show_icons=true&theme=dark)&nbsp;&nbsp;&nbsp;<a href="https://streak-stats.demolab.com?user=ice41&theme=dark&locale=pt_BR&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats" alt="GitHub Streak" /></a>
 
 ---
 
