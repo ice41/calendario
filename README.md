@@ -7,8 +7,8 @@ Um sistema moderno e intuitivo para gestão de férias de funcionários, desenvo
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-<a href="https://ice41.github.io/calendario/">![WEB](https://img.shields.io/badge/experimentar-site-brightgreen?style=for-the-badge)</a>
-
+<a href="https://ice41.github.io/calendario/">![WEB](https://img.shields.io/badge/demo-site-blue?style=for-the-badge)</a>
+<a href="https://nped.pt/calendario/">![WEB](https://img.shields.io/badge/Oficial-site-brightgreen?style=for-the-badge)</a>
 
 
 ## ✨ Funcionalidades
