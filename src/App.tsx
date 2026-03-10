@@ -8,7 +8,7 @@ import { Login } from './components/Login';
 import { AuthProvider, useAuth } from './store/AuthContext';
 
 function AppContent() {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [activeTab, setActiveTab] = useState<'dashboard' | 'employees' | 'calendar'>('dashboard');
 
   if (!isAuthenticated) {

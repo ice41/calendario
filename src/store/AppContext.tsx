@@ -1,5 +1,5 @@
 import { createContext, useContext, type ReactNode, useState, useEffect } from 'react';
-import type { Employee, VacationRequest } from '../types';
+import type { Employee, VacationRequest, CustomRole, Department } from '../types';
 import { format, parseISO, addDays, subDays, differenceInDays } from 'date-fns';
 import * as api from '../lib/api';
 
@@ -16,6 +16,12 @@ interface AppContextType {
     updateVacation: (vacation: VacationRequest) => Promise<void>;
     deleteVacation: (id: string) => Promise<void>;
     removeDayFromVacation: (vacationId: string, dayToRemove: Date) => Promise<void>;
+    roles: CustomRole[];
+    departments: Department[];
+    addRole: (role: Omit<CustomRole, 'id' | 'companyId'>) => Promise<void>;
+    deleteRole: (id: string) => Promise<void>;
+    addDepartment: (department: Omit<Department, 'id' | 'companyId'>) => Promise<void>;
+    deleteDepartment: (id: string) => Promise<void>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -23,6 +29,8 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
     const [employees, setEmployees] = useState<Employee[]>([]);
     const [vacations, setVacations] = useState<VacationRequest[]>([]);
+    const [roles, setRoles] = useState<CustomRole[]>([]);
+    const [departments, setDepartments] = useState<Department[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -31,12 +39,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const [employeesData, vacationsData] = await Promise.all([
+                const [employeesData, vacationsData, rolesData, deptsData] = await Promise.all([
                     api.fetchEmployees(),
-                    api.fetchVacations()
+                    api.fetchVacations(),
+                    api.fetchRoles(),
+                    api.fetchDepartments()
                 ]);
                 setEmployees(employeesData);
                 setVacations(vacationsData);
+                setRoles(rolesData);
+                setDepartments(deptsData);
                 setError(null);
             } catch (err) {
                 console.error('Error fetching data:', err);
@@ -48,6 +60,46 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
         fetchData();
     }, []);
+
+    const addRole = async (role: Omit<CustomRole, 'id' | 'companyId'>) => {
+        try {
+            const newRole = await api.createRole(role as Omit<CustomRole, 'id'>);
+            setRoles((prev) => [...prev, newRole]);
+        } catch (err) {
+            console.error('Error adding role:', err);
+            throw err;
+        }
+    };
+
+    const deleteRole = async (id: string) => {
+        try {
+            await api.deleteRole(id);
+            setRoles((prev) => prev.filter((r) => r.id !== id));
+        } catch (err) {
+            console.error('Error deleting role:', err);
+            throw err;
+        }
+    };
+
+    const addDepartment = async (department: Omit<Department, 'id' | 'companyId'>) => {
+        try {
+            const newDept = await api.createDepartment(department as Omit<Department, 'id'>);
+            setDepartments((prev) => [...prev, newDept]);
+        } catch (err) {
+            console.error('Error adding department:', err);
+            throw err;
+        }
+    };
+
+    const deleteDepartment = async (id: string) => {
+        try {
+            await api.deleteDepartment(id);
+            setDepartments((prev) => prev.filter((d) => d.id !== id));
+        } catch (err) {
+            console.error('Error deleting department:', err);
+            throw err;
+        }
+    };
 
     const addEmployee = async (employee: Employee) => {
         try {
@@ -164,6 +216,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
             // 2. Create two new parts
             const firstPart: VacationRequest = {
                 id: crypto.randomUUID(),
+                companyId: vacation.companyId,
                 employeeId: vacation.employeeId,
                 startDate: vacation.startDate,
                 endDate: newEndFirstPart,
@@ -173,6 +226,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
             const secondPart: VacationRequest = {
                 id: crypto.randomUUID(),
+                companyId: vacation.companyId,
                 employeeId: vacation.employeeId,
                 startDate: newStartSecondPart,
                 endDate: vacation.endDate,
@@ -199,6 +253,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
             value={{
                 employees,
                 vacations,
+                roles,
+                departments,
                 isLoading,
                 error,
                 addEmployee,
@@ -209,6 +265,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
                 updateVacation,
                 deleteVacation,
                 removeDayFromVacation,
+                addRole,
+                deleteRole,
+                addDepartment,
+                deleteDepartment,
             }}
         >
             {children}

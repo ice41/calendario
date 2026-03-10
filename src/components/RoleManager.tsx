@@ -75,7 +75,7 @@ export function RoleManager({ isOpen, onClose }: RoleManagerProps) {
                         </div>
                     ) : (
                         <ul className="divide-y divide-slate-200 max-h-[400px] overflow-y-auto">
-                            {roles.map(role => {
+                            {roles.map((role: any) => {
                                 const count = employees.filter(e => e.role === role.name).length;
                                 return (
                                     <li key={role.id} className="p-4 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">

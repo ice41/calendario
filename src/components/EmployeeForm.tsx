@@ -147,7 +147,7 @@ export function EmployeeForm({ isOpen, onClose, onSubmit, initialData }: Employe
                             disabled={isSubmitting}
                         >
                             {roles.length === 0 && <option value="">Sem cargos criados</option>}
-                            {roles.map((r) => (
+                            {roles.map((r: any) => (
                                 <option key={r.id} value={r.name}>{r.name}</option>
                             ))}
                         </select>
@@ -163,7 +163,7 @@ export function EmployeeForm({ isOpen, onClose, onSubmit, initialData }: Employe
                             disabled={isSubmitting}
                         >
                             {departments.length === 0 && <option value="">Sem departamentos criados</option>}
-                            {departments.map((d) => (
+                            {departments.map((d: any) => (
                                 <option key={d.id} value={d.name}>{d.name}</option>
                             ))}
                         </select>

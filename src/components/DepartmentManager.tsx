@@ -73,7 +73,7 @@ export function DepartmentManager({ isOpen, onClose }: DepartmentManagerProps) {
                         </div>
                     ) : (
                         <ul className="divide-y divide-slate-200 max-h-[400px] overflow-y-auto">
-                            {departments.map(dept => {
+                            {departments.map((dept: any) => {
                                 const count = employees.filter(e => e.department === dept.name).length;
                                 return (
                                     <li key={dept.id} className="p-4 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors">
